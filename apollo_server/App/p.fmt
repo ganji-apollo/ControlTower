@@ -1,0 +1,340 @@
+************* Module apolloserverlistener
+C: 39,0: Line too long (103/80)
+C: 40,0: Line too long (104/80)
+C: 48,0: Line too long (83/80)
+C: 51,0: Line too long (91/80)
+W: 65,0: Unnecessary semicolon
+C:105,0: Line too long (106/80)
+C:146,0: Line too long (105/80)
+C:149,0: Line too long (107/80)
+C:150,0: Line too long (104/80)
+C:159,0: Line too long (126/80)
+C:160,0: Line too long (118/80)
+C:161,0: Line too long (81/80)
+C:163,0: Line too long (126/80)
+C:164,0: Line too long (135/80)
+C:165,0: Line too long (85/80)
+C:167,0: Line too long (129/80)
+C:168,0: Line too long (123/80)
+C:169,0: Line too long (126/80)
+C:170,0: Line too long (81/80)
+C:172,0: Line too long (129/80)
+C:173,0: Line too long (139/80)
+C:174,0: Line too long (133/80)
+C:179,0: Line too long (110/80)
+C:180,0: Line too long (100/80)
+W:182,0: Bad indentation. Found 19 spaces, expected 20
+C:184,0: Line too long (122/80)
+C:185,0: Line too long (114/80)
+C:186,0: Line too long (117/80)
+C:188,0: Line too long (125/80)
+C:189,0: Line too long (120/80)
+C:190,0: Line too long (123/80)
+C:212,0: Line too long (104/80)
+C:213,0: Line too long (102/80)
+C:218,0: Line too long (85/80)
+C:253,0: Line too long (92/80)
+C:255,0: Line too long (116/80)
+C:271,0: Line too long (107/80)
+C:273,0: Line too long (116/80)
+C:275,0: Line too long (110/80)
+C:277,0: Line too long (102/80)
+C:292,0: Line too long (91/80)
+C:353,0: Line too long (84/80)
+C:372,0: Line too long (107/80)
+C:373,0: Line too long (117/80)
+C:420,0: Line too long (100/80)
+C:  1,0: Missing docstring
+C: 23,0: Invalid name "db_group" for type constant (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+W: 47,12:send_notice: Redefining built-in 'id'
+W: 41,11:send_notice: Catching too general exception Exception
+C: 41,22:send_notice: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W: 55,11:send_notice: Catching too general exception Exception
+C: 47,12:send_notice: Invalid name "id" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C: 47,16:send_notice: Invalid name "to" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C: 55,22:send_notice: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C: 62,0:getDBInfo: Invalid name "getDBInfo" for type function (should match [a-z_][a-z0-9_]{2,30}$)
+C: 62,0:getDBInfo: Missing docstring
+W: 64,4:getDBInfo: Using global for 'db_group' but no assignment is done
+C: 71,25:getDBInfo: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W: 81,0:ServerListenerProtocol: Method 'rawDataReceived' is abstract in class 'LineReceiver' but is not overridden
+W: 81,0:ServerListenerProtocol: Class has no __init__ method
+C: 85,4:ServerListenerProtocol.connectionMade: Invalid name "connectionMade" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+C: 86,8:ServerListenerProtocol.connectionMade: Operator not followed by a space
+        self._peer =self.transport.getPeer()
+                   ^
+C: 89,4:ServerListenerProtocol.connectionLost: Invalid name "connectionLost" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+W: 89,4:ServerListenerProtocol.connectionLost: Signature differs from overridden method
+C: 92,4:ServerListenerProtocol.lineReceived: Invalid name "lineReceived" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+W: 95,8:ServerListenerProtocol.lineReceived: No exception type(s) specified
+C:103,12:ServerListenerProtocol.lineReceived: Comma not followed by a space
+            cmdinfo = info['cmdinfo'].split(':',1)
+                                               ^^
+C:109,4:ServerListenerProtocol.transCommand: Invalid name "transCommand" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+C:121,16:ServerListenerProtocol.transCommand: Comma not followed by a space
+                fac.defer.addBoth(self.updateStats,others=others)
+                                                  ^^
+E:125,12:ServerListenerProtocol.transCommand: Module 'twisted.internet.reactor' has no 'connectTCP' member
+C:126,12:ServerListenerProtocol.transCommand: Comma not followed by a space
+            log.info('向%s转发请求:%s'%(info['h'],info['c']))
+                                            ^^
+C:128,4:ServerListenerProtocol.cronCallBack: Invalid name "cronCallBack" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+W:135,15:ServerListenerProtocol.cronCallBack: Catching too general exception Exception
+C:135,26:ServerListenerProtocol.cronCallBack: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+E:136,12:ServerListenerProtocol.cronCallBack: Instance of 'ApolloLogger' has no 'errer' member
+C:140,4:ServerListenerProtocol.recordCron: Invalid name "recordCron" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+W:198,15:ServerListenerProtocol.recordCron: Catching too general exception Exception
+C:156,12:ServerListenerProtocol.recordCron: Invalid name "jn" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:179,24:ServerListenerProtocol.recordCron: Comma not followed by a space
+                        call_carbon("apollocrond.%s.%s" % (info['host_name'],info['cid']), info['exec_time'],
+                                                                            ^^
+                                    time.mktime(time.strptime(info['stime'], '%Y-%m-%d %H:%M:%S')) )
+C:198,26:ServerListenerProtocol.recordCron: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W:260,8:ServerListenerProtocol.cronNotice: Redefining built-in 'format'
+C:205,4:ServerListenerProtocol.cronNotice: Invalid name "cronNotice" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+R:205,4:ServerListenerProtocol.cronNotice: Too many local variables (22/15)
+W:214,15:ServerListenerProtocol.cronNotice: Catching too general exception Exception
+C:214,26:ServerListenerProtocol.cronNotice: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W:224,15:ServerListenerProtocol.cronNotice: Catching too general exception Exception
+C:224,26:ServerListenerProtocol.cronNotice: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+E:247,18:ServerListenerProtocol.cronNotice: Instance of 'ServerListenerProtocol' has no 'factory' member
+C:280,8:ServerListenerProtocol.cronNotice: Comma not followed by a space
+        body = "%s\n程序标准输出:\n%s\n" % (msg,info['output'])
+                                         ^^
+C:282,12:ServerListenerProtocol.cronNotice: Comma not followed by a space
+            if notices and cron_info['notice_status'] not in (2,3):
+                                                               ^^
+C:284,28:ServerListenerProtocol.cronNotice: Invalid name "to" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:299,12:ServerListenerProtocol.cronNotice: Comma not followed by a space
+            if cron_info['notice_status'] not in (3,4):
+                                                   ^^
+C:302,12:ServerListenerProtocol.cronNotice: Invalid name "im" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+R:205,4:ServerListenerProtocol.cronNotice: Too many branches (27/12)
+R:205,4:ServerListenerProtocol.cronNotice: Too many statements (77/50)
+C:312,4:ServerListenerProtocol.updateStats: Invalid name "updateStats" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+R:312,4:ServerListenerProtocol.updateStats: Too many local variables (23/15)
+W:326,15:ServerListenerProtocol.updateStats: Catching too general exception Exception
+C:326,26:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W:329,19:ServerListenerProtocol.updateStats: Catching too general exception Exception
+C:329,30:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:331,16:ServerListenerProtocol.updateStats: Comma not followed by a space
+                log.error(ERR_TPL%(func_name,str(e)))
+                                            ^^
+C:343,12:ServerListenerProtocol.updateStats: Invalid name "tb" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:346,12:ServerListenerProtocol.updateStats: Invalid name "pk" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:347,25:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:350,8:ServerListenerProtocol.updateStats: Invalid name "kv" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+W:367,15:ServerListenerProtocol.updateStats: Catching too general exception Exception
+C:352,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            alias = dict([x.split(':',1) for x in kv])
+                                     ^^
+C:361,16:ServerListenerProtocol.updateStats: Invalid name "cv" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:367,26:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:368,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            send_default(ERR_TPL%(func_name,str(e)))
+                                           ^^
+C:369,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            log.error(ERR_TPL%(func_name,str(e)))
+                                        ^^
+C:374,25:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:376,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            log.error(ERR_TPL%(func_name,str(e)))
+                                        ^^
+C:378,26:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:379,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            send_default(ERR_TPL%(func_name,str(e)))
+                                           ^^
+C:380,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            log.error(ERR_TPL%(func_name,str(e)))
+                                        ^^
+W:386,15:ServerListenerProtocol.updateStats: Catching too general exception Exception
+C:386,26:ServerListenerProtocol.updateStats: Invalid name "e" for type variable (should match [a-z_][a-z0-9_]{2,30}$)
+C:387,12:ServerListenerProtocol.updateStats: Comma not followed by a space
+            send_default(ERR_TPL%(func_name,e.message))
+                                           ^^
+R:312,4:ServerListenerProtocol.updateStats: Method could be a function
+R:312,4:ServerListenerProtocol.updateStats: Too many branches (16/12)
+R:312,4:ServerListenerProtocol.updateStats: Too many statements (66/50)
+C:393,4:ServerListenerProtocol.responseTo: Invalid name "responseTo" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+C:393,4:ServerListenerProtocol.responseTo: Missing docstring
+C:395,4:ServerListenerProtocol.errorResponse: Invalid name "errorResponse" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+C:395,4:ServerListenerProtocol.errorResponse: Missing docstring
+W: 86,8:ServerListenerProtocol.connectionMade: Attribute '_peer' defined outside __init__
+R: 81,0:ServerListenerProtocol: Too many public methods (21/20)
+C:398,0:RemoteCommandProtocol: Missing docstring
+W:398,0:RemoteCommandProtocol: Class has no __init__ method
+C:399,4:RemoteCommandProtocol.connectionMade: Invalid name "connectionMade" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+E:401,24:RemoteCommandProtocol.connectionMade: Instance of 'RemoteCommandProtocol' has no 'factory' member
+E:402,68:RemoteCommandProtocol.connectionMade: Instance of 'RemoteCommandProtocol' has no 'factory' member
+C:404,4:RemoteCommandProtocol.stringReceived: Invalid name "stringReceived" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+E:405,8:RemoteCommandProtocol.stringReceived: Instance of 'RemoteCommandProtocol' has no 'factory' member
+E:406,52:RemoteCommandProtocol.stringReceived: Instance of 'RemoteCommandProtocol' has no 'factory' member
+C:408,4:RemoteCommandProtocol.connectionLost: Invalid name "connectionLost" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+W:408,4:RemoteCommandProtocol.connectionLost: Signature differs from overridden method
+W:400,8:RemoteCommandProtocol.connectionMade: Attribute '_peer' defined outside __init__
+C:411,0:RemoteCommandFactory: Missing docstring
+C:414,4:RemoteCommandFactory.__init__: Comma not followed by a space
+    def __init__(self,command,host):
+                     ^^
+C:419,4:RemoteCommandFactory.clientConnectionFailed: Invalid name "clientConnectionFailed" for type method (should match [a-z_][a-z0-9_]{2,30}$)
+C:420,8:RemoteCommandFactory.clientConnectionFailed: Comma not followed by a space
+        self.defer.errback(Exception(json.dumps({'h': self.host,'o': str(reason.value), 's': 256})))
+                                                               ^^
+W:428,4: No exception type(s) specified
+C:434,4: Invalid name "factory" for type constant (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+E:438,4: Module 'twisted.internet.reactor' has no 'listenTCP' member
+E:440,4: Module 'twisted.internet.reactor' has no 'run' member
+W: 18,0: Unused import send_email
+W: 15,0: Unused import EXCEPTION_NOTICE
+W:  8,0: Unused import md5
+W: 11,0: Unused import Protocol
+W: 18,0: Unused import send_sms
+
+
+Report
+======
+321 statements analysed.
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |107    |107      |=          |
++-----------+-------+---------+-----------+
+|refactor   |8      |8        |=          |
++-----------+-------+---------+-----------+
+|warning    |29     |29       |=          |
++-----------+-------+---------+-----------+
+|error      |9      |9        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------+------------+
+|message id |occurrences |
++===========+============+
+|C0301      |43          |
++-----------+------------+
+|C0103      |40          |
++-----------+------------+
+|C0324      |17          |
++-----------+------------+
+|W0703      |10          |
++-----------+------------+
+|E1101      |9           |
++-----------+------------+
+|C0111      |6           |
++-----------+------------+
+|W0611      |5           |
++-----------+------------+
+|W0702      |2           |
++-----------+------------+
+|W0622      |2           |
++-----------+------------+
+|W0232      |2           |
++-----------+------------+
+|W0222      |2           |
++-----------+------------+
+|W0201      |2           |
++-----------+------------+
+|R0915      |2           |
++-----------+------------+
+|R0914      |2           |
++-----------+------------+
+|R0912      |2           |
++-----------+------------+
+|W0602      |1           |
++-----------+------------+
+|W0311      |1           |
++-----------+------------+
+|W0301      |1           |
++-----------+------------+
+|W0223      |1           |
++-----------+------------+
+|R0904      |1           |
++-----------+------------+
+|R0201      |1           |
++-----------+------------+
+|C0323      |1           |
++-----------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 4.11/10 (previous run: 4.11/10)
+
+External dependencies
+---------------------
+::
+
+    MySQLdb (apolloserverlistener)
+      \-escape_string (apolloserverlistener)
+    twisted 
+      \-internet 
+      | \-defer (apolloserverlistener)
+      | \-epollreactor (apolloserverlistener)
+      | \-protocol 
+      | | \-ClientFactory (apolloserverlistener)
+      | | \-Protocol (apolloserverlistener)
+      | | \-ServerFactory (apolloserverlistener)
+      | \-reactor (apolloserverlistener)
+      \-protocols 
+        \-basic 
+          \-LineReceiver (apolloserverlistener)
+          \-NetstringReceiver (apolloserverlistener)
+
+
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |3      |3          |=          |33.33       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |15     |15         |=          |86.67       |93.33    |
++---------+-------+-----------+-----------+------------+---------+
+|function |3      |3          |=          |66.67       |33.33    |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |360    |85.11 |360      |=          |
++----------+-------+------+---------+-----------+
+|docstring |32     |7.57  |32       |=          |
++----------+-------+------+---------+-----------+
+|comment   |2      |0.47  |2        |=          |
++----------+-------+------+---------+-----------+
+|empty     |29     |6.86  |29       |=          |
++----------+-------+------+---------+-----------+
+
+
+

@@ -1,0 +1,148 @@
+#! /usr/bin/python
+# -*- coding: utf-8 -*-
+import MySQLdb
+import base64
+import json
+import pysvn 
+import sys 
+import traceback
+import os
+import time
+import commands 
+import logging
+
+log_file = "./basic_logger.log"
+logging.basicConfig(filename =log_file,level =logging.DEBUG,format = '%(asctime)s - %(levelname)s: %(message)s')
+
+
+client = pysvn.Client()
+client.set_auth_cache('false')
+client.set_interactive('false')
+#client.set_default_username('mangweiqi')
+client.set_default_username('apollo')
+#client.set_default_password('1234')
+client.set_default_password('apollo123')
+#client.exception_style = 1
+
+id = sys.argv[1]
+status = {'status':2001,'info':'svn up success'}
+error={}
+success = json.dumps(status)
+error['status'] = (1)
+
+online_path = "/data/server/www/ganji/ganji_online/"
+v3_path = "/data/server/www/"
+reports = "/opt/mjolnir/reports/"
+
+stalist=[]
+filelist=[]
+mysqlini = {
+        'host': '127.0.0.1',
+        'port': 3306,
+        'user': 'mangweiqi',
+        'passwd': 'mangweiqi',
+        'db': 'releas',
+        'charset': 'utf8'
+        }
+
+try:
+    conn=MySQLdb.connect(**mysqlini)
+    cur=conn.cursor()
+    cur.execute('select filelist,jira,rid from rel_releasetask where id = %s'% id)
+    cds=cur.fetchone()
+    filejson = base64.decodestring(cds[0])
+    projects = json.loads(filejson)
+    for item in projects:
+        files = item['files'].split('\r\n')
+        if item['project'] == 'ganji_v3':
+            for v3 in files:
+                if v3 != '':
+                    aa = v3.rstrip()
+                    bb='%s%s/%s' % (v3_path, item['project'],aa)
+                    filelist.append(bb)
+        elif item['project'] == 'ganji_sta':
+            for sta in files:
+                if sta != '':
+                    aa = sta.rstrip()
+                    cc = aa.split('/',1)[1].split()[0]
+                    stasrc = '%s' % (cc)
+                    bb='%s%s/%s' % (online_path, item['project'],aa)
+                    stalist.append(stasrc)
+                    filelist.append(bb)
+        else:
+            for online in files:
+               if online !='':
+                    aa = online.rstrip()
+                    bb='%s%s/%s' % (online_path, item['project'],aa)
+                    filelist.append(bb)
+ #   print stalist
+    try:
+        for item in filelist:
+#            print item
+            dir_path = os.path.dirname(item)
+            update_path=item
+            while dir_path != '/data/server/www':
+                if os.path.exists(dir_path):
+                    file_content = client.update(update_path)
+                    break
+                else:
+                    update_path = dir_path 
+                    dir_path = os.path.dirname(dir_path)
+
+            filepath = item.split()[0]
+            if not os.path.exists(filepath):
+                error['info'] = (filepath) +" "+ "此文件未找到"
+                encodedjson = json.dumps(error)
+                print encodedjson 
+                localtime = time.strftime('%Y-%m-%d %H:%M:%S')
+                sql = "insert into rel_oplog values(NULL,%s,%s,%s,%s,%s,%s)"
+                oplog = ('apolloadmin','Task/TestOneTask/insert',error['info'],localtime,'127.0.0.1',cds[1])
+                cur.execute(sql,oplog)
+                conn.commit()
+                exit()
+#        else:
+#            cur.execute('update rel_releasetask set status = "2001" where id = %s' % id)
+#            print success 
+        if stalist:
+           http ='sta编译错误详见 <a href = http://192.168.37.153:8888/%s target=_blank>详细</a> ' % cds[1].strip()
+           os.chdir('/opt/mjolnir/')
+           (status,output) = commands.getstatusoutput("grunt build:%s --token=%s.txt  " % (":".join(stalist),cds[1].strip()))
+           reports_file = file("%s%s.txt" % (reports,cds[1].strip()));
+           s = json.load(reports_file)
+    #       print s
+           if not s["fail"]:
+               cur.execute('update rel_releasetask set status = "2001" where id = %s' % id)
+               cur.execute('update rel_task set status = "2001" where id = %s' % cds[2])
+               print success
+           else:
+            #   error['info'] = "Sta compile error"
+               error['info'] = http
+               localtime = time.strftime('%Y-%m-%d %H:%M:%S')
+               sql = "insert into rel_oplog values(NULL,%s,%s,%s,%s,%s,%s)"
+               oplog = ('apolloadmin','Task/TestOneTask/insert','Sta compile error',localtime,'127.0.0.1',cds[1])
+               cur.execute(sql,oplog)
+               encodedjson = json.dumps(error)
+               print encodedjson
+               reports_file.close
+        else:
+            cur.execute('update rel_releasetask set status = "2001" where id = %s' % id)
+            cur.execute('update rel_task set status = "2001" where id = %s' % cds[2])
+            print success
+
+    except pysvn.ClientError, e:
+        error['info'] = str(e)
+        encodedjson = json.dumps(error)
+        localtime = time.strftime('%Y-%m-%d %H:%M:%S')
+        sql = "insert into rel_oplog values(NULL,%s,%s,%s,%s,%s,%s)"
+        oplog = ('apolloadmin','Task/TestOneTask/insert',str(e),localtime,'127.0.0.1',cds[1])
+        cur.execute(sql,oplog)
+        print encodedjson 
+    conn.commit()
+    cur.close()
+    conn.close()
+
+except MySQLdb.Error,e:
+    print e
+    error['info'] = (e.args[1])
+    encodedjson = json.dumps(error)
+    print encodedjson 

@@ -1,0 +1,27 @@
+;every section represents a task
+;every task has several options
+;task_name represents the task's name
+;task_content represents the excutable content of the task
+;task_interval represents the interval time 
+;return_type represents the output format.1 => json,2 => txt, 256=>none
+[cpu]
+task_name = cpu
+task_content = head -1 /proc/stat|awk '{printf "%.2f",$2/($2+$3+$4+$5+$6+$7+$8)}'
+task_interval = 30
+return_type = 2
+hostlist = all
+
+[loadavg] 
+task_name = loadavg
+task_content = cat /proc/loadavg|awk '{printf "%.2f,%.2f,%.2f",$1,$2,$3}'
+task_interval = 30
+return_type = 2
+hostlist = all
+
+[disk]
+task_name = disk
+task_content = /data/apollo/python/bin/python /data/apollo/apollo_agent/Scr/diskspace_check.py
+task_interval = 60
+return_type = 1
+hostlist = all
+
